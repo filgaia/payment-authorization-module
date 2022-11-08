@@ -57,6 +57,15 @@ Insufficient limit
 {"payment-session": {"payment-id": 89087654, "cc": "visa", "amount": 120, "time": "2022-02-13T10:00:00.000Z"}}
 ```
 
+More than three (3) transactions in two minutes
+
+```json
+{"payment-rules": {"max-limit": 100}}
+{"payment-session": {"payment-id": 89087654, "cc": "visa", "time": "2022-02-13T10:00:00.000Z"}}
+{"payment-session": {"payment-id": 89087655, "cc": "visa", "time": "2022-02-13T10:01:00.000Z"}}
+{"payment-session": {"payment-id": 89087656, "cc": "visa", "time": "2022-02-13T10:01:00.000Z"}}
+```
+
 ### Output example
 
 ```json

@@ -4,7 +4,7 @@ export interface PaymentRuleType {
 
 export interface PaymentSessionType {
   readonly ['payment-id']: number
-  readonly cc: string // could be too 'visa' | 'mastercard' | amex ...
+  readonly cc: 'visa' | 'mastercard'
   readonly amount?: number
   readonly ['available-limit']: number
   readonly violations: string[] // could ve a violationType enum with 'insufficient-limit' ...

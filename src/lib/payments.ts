@@ -55,7 +55,7 @@ const payments = (): PaymentsType => {
     state = defaultState,
     value: PaymentSessionType
   ): string[] => {
-    const violations = []
+    const violations: string[] = []
 
     if (state['payment-rules']['max-limit'] === 0) {
       violations.push(
@@ -74,6 +74,28 @@ const payments = (): PaymentsType => {
 
     if (state.limit < (value?.amount ?? 0)) {
       violations.push('insufficient-limit')
+    }
+
+    if (value.time !== undefined) {
+      let difference = 0
+      let count = 0
+
+      for (const session of state['payment-session']) {
+        const start = new Date(value.time)
+        const end = new Date(session.time)
+        difference = Math.abs(start.getTime() - end.getTime())
+
+        // if transaction happens in less than two minutes
+        if (difference < 60 * 2 * 1000) {
+          count++
+        }
+
+        // If there is are 3 transactions in les than two minutes (2 in session plus current)
+        if (count > 1) {
+          violations.push('high-frequency-small-interval')
+          break
+        }
+      }
     }
 
     return violations
