@@ -3,7 +3,7 @@ import { PaymentSessionType, StateType } from './models'
 
 export interface PaymentsType {
   readonly setMaxLimit: (state: StateType, value: number) => StateType
-  readonly rulesToString: (state: StateType) => string
+  readonly rulesToString: (state?: StateType) => string
   readonly pushSession: (
     state: StateType,
     value: PaymentSessionType

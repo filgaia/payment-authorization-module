@@ -84,4 +84,5 @@ More than three (3) transactions in two minutes
 - [Prettier](https://prettier.io/)
 - [Typescript](https://www.typescriptlang.org/)
 - [nodemon](https://github.com/remy/nodemon) For `dev` run
+- [Jest](https://jestjs.io/docs/getting-started#via-ts-jest)
 - [Emulating Object-Oriented concepts with Functional Programming](https://github.com/hoppinger/Functional-information-hiding-in-TypeScript)
